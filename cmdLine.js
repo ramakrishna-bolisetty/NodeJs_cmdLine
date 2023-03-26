@@ -30,8 +30,8 @@ if(operationIndex === -1 || operationIndex === args.length - 1){
 }
 
 const operation = args[operationIndex + 1].toLowerCase();
-let values=args.slice(2);
-values=values.map((ele)=>Number(ele));
+let values = args.slice(2);
+values = values.map((ele)=>Number(ele));
 
 if(values.some(isNaN)){
     console.log('Invalid value');
