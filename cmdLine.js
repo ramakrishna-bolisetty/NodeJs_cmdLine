@@ -16,40 +16,40 @@ d. node app.js --operation division 4 2 => 4/2 = 2
 
 */
 
-const args = process.argv.slice(2); 
+const args = process.argv.slice(2);
 
-if (args.length < 2){
+if (args.length < 2) {
     console.log('Invalid number of arguments');
     return;
 }
 
 const operationIndex = args.findIndex(arg => arg === '--operation');
-if(operationIndex === -1 || operationIndex === args.length - 1){
+if (operationIndex === -1 || operationIndex === args.length - 1) {
     console.log('Invalid operation');
     return;
 }
 
 const operation = args[operationIndex + 1].toLowerCase();
-let values=args.slice(2);
-values=values.map((ele)=>Number(ele));
+let values = args.slice(2);
+values = values.map((ele) => Number(ele));
 
-if(values.some(isNaN)){
+if (values.some(isNaN)) {
     console.log('Invalid value');
     return;
 }
 
 let result;
-switch (operation){
+switch (operation) {
     case 'addition':
         result = values.reduce((acc, curr) => acc + curr, 0);
         console.log(`${values.join(' + ')} = ${result}`);
         break;
 
     case 'subtraction':
-        if (values.length !== 2){
+        if (values.length !== 2) {
             console.log('Subtraction takes exactly 2 values');
             return;
-        }    
+        }
         result = values[0] - values[1];
         console.log(`${values[0]} - ${values[1]} = ${result}`);
         break;
@@ -60,18 +60,18 @@ switch (operation){
         break;
 
     case 'division':
-        if (values.length !== 2){
+        if (values.length !== 2) {
             console.log('Division takes exactly 2 values');
             return;
         }
-        if (values[1] == 0){
+        if (values[1] == 0) {
             console.log('Cannot divide by zero');
-        }    
+        }
         result = values[0] / values[1];
         console.log(`${values[0]} / ${values[1]} = ${result}`);
-        break; 
+        break;
 
     default:
-        console.log('Unsupported operation');       
+        console.log('Unsupported operation');
 
 }
