@@ -75,3 +75,7 @@ switch (operation){
         console.log('Unsupported operation');       
 
 }
+
+/*input node app.js --operation addition 1 2 3 4 
+output 1+2+3+4 = 10
+*/
